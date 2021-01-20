@@ -1,0 +1,75 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 91ea1bd53419a87b36a1fbfd276468958f4f0e01016a6519d414de356e308886
+
+name:           status-client
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/thealmarty/status-client#readme>
+homepage:       https://github.com/thealmarty/status-client#readme
+bug-reports:    https://github.com/thealmarty/status-client/issues
+author:         Marty Stumpf
+maintainer:     thealmartyblog@gmail.com
+copyright:      BSD3
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/thealmarty/status-client
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_status_client
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , mtl
+    , network
+    , text
+    , websockets
+  default-language: Haskell2010
+
+executable status-client-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_status_client
+  hs-source-dirs:
+      app
+  default-extensions: OverloadedStrings
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , mtl
+    , network
+    , status-client
+    , text
+    , websockets
+  default-language: Haskell2010
+
+test-suite status-client-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_status_client
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
+  build-depends:
+      base >=4.7 && <5
+    , mtl
+    , network
+    , status-client
+    , text
+    , websockets
+  default-language: Haskell2010
